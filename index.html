@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Ensure the path is correct -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('../images/Home.png'); /* Ensure you replace this URL */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fefefe;
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ageModal" class="modal">
+    <div class="modal-content">
+        <h2>Please verify your age</h2>
+        <input type="number" id="ageInput" placeholder="Enter your age">
+        <button onclick="verifyAge()">Submit</button>
+        <p id="message"></p>
+    </div>
+</div>
+
+<script>
+    function showModal() {
+        var modal = document.getElementById("ageModal");
+        modal.style.display = "block";
+    }
+
+    // Delay the modal display by 10 seconds (10000 milliseconds)
+    setTimeout(showModal, 10000);
+
+    function verifyAge() {
+        var age = document.getElementById('ageInput').value;
+        if (age >= 18) {
+            window.location.href = 'map_.html';
+        } else if (age !== '') {
+            document.getElementById('message').innerHTML = 'Come back a few years later :)';
+        } else {
+            document.getElementById('message').innerHTML = 'Please enter your age.';
+        }
+    }
+</script>
+
+</body>
+</html>
