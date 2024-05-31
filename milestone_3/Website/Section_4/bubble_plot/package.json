@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "natural": "^7.0.5",
-    "stopword": "^3.0.1"
-  }
-}

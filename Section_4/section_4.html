@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Wine</title>
+    <link rel="stylesheet" href="section4.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+</Mead>
+<body>
+    <div class="container">
+        <div class="background-svg">
+            <object data="../Section_2/2209-grapes-5a.svg" type="image/svg+xml" class="rotated-svg"></object>
+        </div>
+        <div id="page1" class="page">
+            <div id="text1" class="text">
+                <p> Thank you for joining us on this incredible journey through the world of wines. We hope you've discovered intriguing facts and perhaps even found a new favorite wine to savor.
+                </p>
+                <p>But wait, there’s more! Before you go, we’re excited to unveil a special surprise. Now that you've discovered some of your favorite wineries from around the globe, we've created an innovative tool designed to enhance your wine exploration. This handy tool allows you to visualize detailed data about the wines from each winery. Make your more informed wine purchases with just a click!</p>
+            </div>
+        </div>
+        <div id="page2" class="page">
+            <div class="bubble-plot">
+                <iframe src="bubble_plot/bubble_plot.html"></iframe>
+            </div>        
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="dot" id="dot1"></span>
+        <span class="dot" id="dot2"></span>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElements = document.querySelectorAll('.animated-text');
+            textElements.forEach(text => {
+                const words = text.textContent.split(' ');
+                text.innerHTML = '';
+                words.forEach(word => {
+                    const span = document.createElement('span');
+                    span.textContent = word + ' ';
+                    span.className = 'hidden';
+                    text.appendChild(span);
+                    const space = document.createTextNode(' ');
+                    text.appendChild(space);
+                });
+                const spans = text.querySelectorAll('span');
+                let i = 0;
+                function fadeInWord() {
+                    if (i < spans.length) {
+                        spans[i].classList.add('visible');
+                        i++;
+                        setTimeout(fadeInWord, 100); // Adjust this delay to control the speed of the word fade-in
+                    }
+                }
+                fadeInWord();
+            });
+            const container = document.querySelector('.container');
+            const dots = document.querySelectorAll('.dot');
+            container.addEventListener('scroll', () => {
+                const pageIndex = Math.round(container.scrollLeft / window.innerWidth);
+                dots.forEach((dot, index) => {
+                    dot.style.backgroundColor = index === pageIndex ? '#000' : '#bbb';
+                });
+            });
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    container.scrollTo({
+                        left: index * window.innerWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
