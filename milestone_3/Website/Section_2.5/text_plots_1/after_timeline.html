@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Wine Production Diversity</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+    .top-half {
+        height: 30%;  /* Smaller height for text area */
+        width: 100%;
+        color: #f1e1d1; /* Light cream color */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .bottom-half {
+        height: 70%;  /* Larger height for plots */
+        display: flex;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .column {
+        flex: 1;
+        padding: 5px;
+        box-sizing: border-box;
+        overflow: hidden;  /* Add overflow hidden to the column */
+        height: calc(100% - 45px); /* Adjust the height to hide bottom 20px */
+        margin-bottom: -20px; /* Push up the bottom margin */
+    }
+    .plot {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-size: 20px;
+    }
+    
+</style>
+</head>
+<body>
+<div class="top-half">
+    <p>Over the past century, Europe has maintained its lead in wine production, yet countries across other continents like the United States, Australia, Argentina, and South Africa have significantly ramped up their output. This is a clear sign of the globalization of the wine industry. While the previous visualization helped compare production in specific years, they fall short in showing the historical evolution of wine production at a glimpse.
+    <br><br>
+    Explore below the dynamic changes in wine production by continent, by top-producing countries, and notably among non-European nations, where the shifts are most dramatic. For instance, what caused Algeria's wine production to cease? What factors contributed to the surge in wine production in the US? Dive into these questions and uncover the forces shaping global wine trends!
+    <br><br>
+    In the next page, we will look at wine production from a different perspective. As wine enthusiasts, it's not merely about the volume of wine produced, but rather the variety and diversity of flavors we can experience. Let's move to the present day and uncover the myriad types of wine that vineyards across the world have to offer. </p>
+
+</div>
+<div class="bottom-half">
+    <div class="column">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/18182993"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    </div>
+    <div class="column">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/18183029"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        </div>
+    <div class="column">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/18182909"><script src="https://public.flourish.studio/resources/embed.js"></script></div>    
+    </div>
+</div>
+</body>
+</html>

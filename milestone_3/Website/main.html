@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WineMap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia+Pro:wght@400&display=swap'); /* Adjust if necessary */
+    html, body, #fullpage {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #5e3747 0%, #3e051f 100%);
+    }
+    .section {
+      height: 100%;
+      background: linear-gradient(to right, #5e3747 0%, #3e051f 100%);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #section1 {
+      background-image: url('./images/Home_grad.png'); /* Replace with the path to your image */
+      background-size: cover; /* Adjust as needed */
+      background-position: center; /* Adjust as needed */
+      background-repeat: no-repeat; /* Adjust as needed */
+    }
+    footer {
+      background: linear-gradient(to right, #5e3747  0%, #3e051f 100%);
+      color: white; 
+      text-align: center; 
+      padding: 10px 0; 
+      width: 100%; 
+      height: 60px;  
+      font-size: 20px;  
+      line-height: 60px;  
+      position: relative;  
+    }
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Major Mono Display", sans-serif;  
+    }
+    .footer-content a {
+      color: rgb(255, 255, 255);
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 30px;
+    }
+    .footer-content span {
+      font-size: 20px;  
+      font-weight: bold;  
+    }
+    .footer-content span:not(:last-child)::after {
+      content: " | "; /* Separator between names */
+      margin: 0 5px;
+    }
+
+    /* Custom styles for fullPage.js navigation dots */
+    .fp-right .fp-tooltip {
+      color: white !important; /* Change the tooltip text color to white */
+      font-family: "Major Mono Display", sans-serif  !important; /* Change the font family */
+      font-size: 16px !important; /* Change the font size */
+    }
+    .fp-right li a span {
+      background: white !important; /* Change the dot color to white */
+    }
+    .fp-right li a.active span {
+      background: white !important; /* Change the active dot color to white */
+    }
+  </style>
+</head>
+<body>
+  <div id="fullpage">
+    <div class="section" id="section1">
+      <iframe src="section1.html"></iframe>
+    </div>
+    <div class="section" id="section2">
+      <iframe src="Section_2/section2.html"></iframe>
+    </div>
+    <div class="section" id="section2_5">
+      <iframe src="Section_2.5/section2.5.html"></iframe>
+    </div>
+    
+    <div class="section" id="section4">
+      <iframe src="Section_4/section_4.html"></iframe>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <a href="https://github.com/com-480-data-visualization/com480DataVisualization_Vinemap" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <span>Sinan ULCAY</span>
+      <span>Mohammed KERRAZ</span>
+      <span>Carlos CAPELL COLLADO</span>
+      <span>Malena MENDILAHARZU</span>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <script>
+    new fullpage('#fullpage', {
+      navigation: true,
+      navigationPosition: 'right',
+      navigationTooltips: ['Home', 'Wine Story', 'Wine Data', 'Explore', 'Footer'],
+      showActiveTooltip: true,
+      scrollingSpeed: 700,
+      autoScrolling: true,
+      scrollBar: true,
+      fitToSection: true,
+      fitToSectionDelay: 100,
+      responsiveWidth: 0,
+      responsiveHeight: 0,
+      responsiveSlides: false,
+    });
+  </script>
+</body>
+</html>

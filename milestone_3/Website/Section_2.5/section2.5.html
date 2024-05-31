@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Wine</title>
+    <link rel="stylesheet" href="section2.5.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="background-svg">
+            <object data="2209-grapes-5a.svg" type="image/svg+xml" class="rotated-svg"></object>
+        </div>
+        <div id="page1" class="page">
+            <div id="text1" class="animated-text">
+                Since 1900, the modern history of wine has seen significant evolution and innovation. The early part of the 20th century was marked by the devastating effects of phylloxera, a vine pest, leading to widespread vine replanting across Europe using phylloxera-resistant rootstocks. Post World War II, the global wine industry expanded rapidly with technological advances in viticulture and winemaking, including controlled fermentation and the use of stainless steel tanks. The latter half of the century witnessed the rise of New World wine regions in the United States, Australia, and South America, which began competing with traditional European producers on quality and innovation. Today, the wine industry is characterized by a blend of tradition and modern technology, with an increasing focus on sustainability and environmental impact, reflecting consumer preferences and climate change challenges. Swipe to explore trends in wine production over the past century.
+            </div>
+        </div>
+        <div id="page2" class="page">
+            <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/18172174"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        </div>
+        <div id="page3" class="page">
+            <div class="text-plots">
+                <iframe src="text_plots_1/after_timeline.html"></iframe>
+            </div>
+        </div>
+        <div id="page4" class="page">
+            <div class="bubble-plot">
+                <iframe src="treemap/treemap.html"></iframe>
+            </div>
+        </div>
+
+
+
+        <div id="page5" class="page">
+            <div class="text-plots">
+                <iframe src="text_plots_2/after_treemap.html"></iframe>
+            </div>
+        </div>
+
+
+        <div id="page6" class="page">
+            <div id="text2" class="animated-text">
+                It's fascinating to discover regions known for producing exceptional wines at great prices. I was personally surprised to learn about Austria's high-quality wine production, having previously associated the country more with beer. It's a delightful revelation! I'm certainly inspired to try some Austrian wines during my next visit to a wine shop. How about you? Have you stumbled upon any new wine regions you're eager to explore?
+                <br><br>
+                <br><br>
+                <br><br>
+                Now, dive into the enchanting world of wines below. Use the map to locate top-tier wineries near you or choose your next travel destination based on its celebrated vineyards.
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="dot" id="dot1"></span>
+        <span class="dot" id="dot2"></span>
+        <span class="dot" id="dot3"></span>
+        <span class="dot" id="dot4"></span>
+        <span class="dot" id="dot5"></span>
+        <span class="dot" id="dot6"></span>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElements = document.querySelectorAll('.animated-text');
+            textElements.forEach(text => {
+                const words = text.textContent.split(' ');
+                text.innerHTML = '';
+                words.forEach(word => {
+                    const span = document.createElement('span');
+                    span.textContent = word + ' ';
+                    span.className = 'hidden';
+                    text.appendChild(span);
+                    const space = document.createTextNode(' ');
+                    text.appendChild(space);
+                });
+                const spans = text.querySelectorAll('span');
+                let i = 0;
+                function fadeInWord() {
+                    if (i < spans.length) {
+                        spans[i].classList.add('visible');
+                        i++;
+                        setTimeout(fadeInWord, 100); // Adjust this delay to control the speed of the word fade-in
+                    }
+                }
+                fadeInWord();
+            });
+            const container = document.querySelector('.container');
+            const dots = document.querySelectorAll('.dot');
+            container.addEventListener('scroll', () => {
+                const pageIndex = Math.round(container.scrollLeft / window.innerWidth);
+                dots.forEach((dot, index) => {
+                    dot.style.backgroundColor = index === pageIndex ? '#000' : '#bbb';
+                });
+            });
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    container.scrollTo({
+                        left: index * window.innerWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

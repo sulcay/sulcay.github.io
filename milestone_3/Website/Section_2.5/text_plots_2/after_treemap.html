@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents overflow */
+        }
+        .static-text {
+            height: 30%; /* 30% of the vertical space for text */
+            overflow: auto; /* Allows scrolling within the text area if needed */
+            padding: 0px;
+            box-sizing: border-box;
+            color: #f1e1d1; /* Light cream color */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flourish-embed {
+            height: 70%; /* 70% of the vertical space for flourish */
+            width: 60%; /* Restricting flourish to 80% of horizontal space */
+            margin: 0 auto; /* Centers horizontally */
+            margin-top: -70px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text2" class="static-text">
+        Europe may be the reigning champion of wine production, but when it comes to variety, the United States takes the crown with over 35,000 different wines. Have you considered visiting Napa, California? It’s a treasure trove for wine enthusiasts!
+        <br><br>
+        Yet, the quantity and variety only tell part of the story. The charm of a wine region truly shines through the quality of its wines. Remarkably, top-quality wines don’t always carry hefty price tags—many affordable wines earn rave reviews from experts and aficionados alike. Explore below how wines from various regions around the world rank in quality and price, according to ratings from www.wineenthusiast.com.
+    </div>
+
+    <!-- Second row with flourish embed -->
+    <div class="flourish-embed flourish-scatter" data-src="visualisation/18175011">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+</body>
+</html>

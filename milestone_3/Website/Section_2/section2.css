@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Major Mono Display", sans-serif;
+}
+
+.container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    position: relative;
+}
+
+.container::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.page {
+    flex: none;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+#page1 {
+    background: linear-gradient(to right, #5e3747  0%, #3e051f 100%);
+}
+
+#page2 {
+    background: linear-gradient(to right, #3e051f 0%, #5e3747 100%);
+}
+
+.text {
+    font-size: 1.2em;
+    margin: 20px;
+    line-height: 1.6;
+    font-weight: 4000;
+    padding: 0 90px; /* Add padding to the left and right */
+    color: #f1e1d1;
+}
+
+.hidden {
+    display: inline-block;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+.background-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140%;
+    height: 100%;
+    opacity: 0.04;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rotated-svg {
+    transform: rotate(90deg);
+    transform-origin: center;
+    width: 50%;
+    height: auto;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}

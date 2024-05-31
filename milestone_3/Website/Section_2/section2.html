@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Wine</title>
+    <link rel="stylesheet" href="section2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="background-svg">
+            <object data="./2209-grapes-5a.svg" type="image/svg+xml" class="rotated-svg"></object>
+        </div>
+        <div id="page1" class="page">
+            <div id="text1" class="text">
+                Welcome to our enchanting exploration of wine, a libation that has delighted human senses for millennia. From its mystical origins around 6000 BCE in what is now modern-day Turkey, wine has been celebrated as a divine gift. As it journeyed across the Mediterranean, wine became integral to Egyptian rituals, Greek mythology, and Roman banquets, shaping cultures and traditions that continue to this day. Embark on this captivating journey with us, and on the next pages, unveil intricate data and exquisite maps that reveal the rich tapestry of the world of wines. Discover a special layer on the map that showcases the average temperatures, offering deeper insights into the terroirs that produce your favorite vintages.
+            </div>
+        </div>
+        <div id="page2" class="page">
+            <div id="text2" class="text">
+                For those curious about wine's fascinating history and its global journey, "The World Atlas of Wine" by Hugh Johnson and Jancis Robinson is an essential guide, offering an unparalleled exploration of the world's wine regions. Join us as we delve into the rich heritage and modern expressions of this timeless elixir through captivating data visualizations and stories.
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="dot" id="dot1"></span>
+        <span class="dot" id="dot2"></span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElements = document.querySelectorAll('.text');
+            textElements.forEach(text => {
+                const words = text.textContent.split(' ');
+                text.innerHTML = '';
+                words.forEach(word => {
+                    const span = document.createElement('span');
+                    span.textContent = word + ' ';
+                    span.className = 'hidden';
+                    text.appendChild(span);
+                    const space = document.createTextNode(' ');
+                    text.appendChild(space);
+                });
+
+                const spans = text.querySelectorAll('span');
+                let i = 0;
+
+                function fadeInWord() {
+                    if (i < spans.length) {
+                        spans[i].classList.add('visible');
+                        i++;
+                        setTimeout(fadeInWord, 100); // Adjust this delay to control the speed of the word fade-in
+                    }
+                }
+
+                fadeInWord();
+            });
+
+            const container = document.querySelector('.container');
+            const dots = document.querySelectorAll('.dot');
+
+            container.addEventListener('scroll', () => {
+                const pageIndex = Math.round(container.scrollLeft / window.innerWidth);
+                dots.forEach((dot, index) => {
+                    dot.style.backgroundColor = index === pageIndex ? '#000' : '#bbb';
+                });
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    container.scrollTo({
+                        left: index * window.innerWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

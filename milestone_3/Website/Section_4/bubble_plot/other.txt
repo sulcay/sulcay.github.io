@@ -1,0 +1,57 @@
+            <div class="viz-wineries">
+                <div class="detail-panel-2">
+                    <!-- Detailed Information Panel -->
+                    <table class="info-table">
+                        <tr><th>Winery</th><td id="Winery-winery"></td></tr>
+                        <tr><th>Country</th><td id="Country-winery"></td></tr>
+                        <tr><th>Number of Wines</th><td id="Number-winery"></td></tr>
+                        <tr><th>Provinces</th><td id="Provinces-winery"></td></tr>
+                        <tr><th>Mean Price</th><td id="MeanPrice-winery"></td></tr>
+                        <tr><th>Min Price</th><td id="MinPrice-winery"></td></tr>
+                        <tr><th>Max Price</th><td id="MaxPrice-winery"></td></tr>
+                        <tr><th>Median Price</th><td id="MedianPrice-winery"></td></tr>
+                        <tr><th>Price Std Dev</th><td id="PriceStdDev-winery"></td></tr>
+                        <tr><th>Mean Score</th><td id="MeanScore-winery"></td></tr>
+                        <tr><th>Min Score</th><td id="MinScore-winery"></td></tr>
+                        <tr><th>Max Score</th><td id="MaxScore-winery"></td></tr>
+                        <tr><th>Median Score</th><td id="MedianScore-winery"></td></tr>
+                        <tr><th>Score Std Dev</th><td id="ScoreStdDev-winery"></td></tr>
+                        <tr><th>Designations</th><td id="Designations-winery"></td></tr>
+                        <tr><th>Varieties</th><td id="Varieties-winery"></td></tr>
+                    </table>
+                </div>
+                <div id="word-cloud"></div>
+            </div>
+
+
+
+JS:
+
+function updateWineryDetailPanel(d) {
+    console.log("Updating detail panel with data:", d); // Debugging: log the data object
+
+    const detailPanel = d3.select(".detail-panel-2");
+
+    detailPanel.select("#Winery-winery").text(d.winery);
+    detailPanel.select("#Country-winery").text(d.country.replace(/[{}'"]/g, "").split(",").map(country => country.trim()).join(", "));
+    detailPanel.select("#Number-winery").text(d.num_wines);
+    detailPanel.select("#Provinces-winery").text(d.provinces.replace(/[{}'"]/g, "").split(",").map(province => province.trim()).join(", "));
+    detailPanel.select("#MeanPrice-winery").text(d.mean_price ? `$${d.mean_price.toFixed(2)}` : "N/A");
+    detailPanel.select("#MinPrice-winery").text(d.min_price ? `$${d.min_price.toFixed(2)}` : "N/A");
+    detailPanel.select("#MaxPrice-winery").text(d.max_price ? `$${d.max_price.toFixed(2)}` : "N/A");
+    detailPanel.select("#MedianPrice-winery").text(d.median_price ? `$${d.median_price.toFixed(2)}` : "N/A");
+    detailPanel.select("#PriceStdDev-winery").text(d.price_std_dev ? d.price_std_dev.toFixed(2) : "N/A");
+    detailPanel.select("#MeanScore-winery").text(d.mean_score ? d.mean_score.toFixed(2) : "N/A");
+    detailPanel.select("#MinScore-winery").text(d.min_score ? d.min_score.toFixed(2) : "N/A");
+    detailPanel.select("#MaxScore-winery").text(d.max_score ? d.max_score.toFixed(2) : "N/A");
+    detailPanel.select("#MedianScore-winery").text(d.median_score ? d.median_score.toFixed(2) : "N/A");
+    detailPanel.select("#ScoreStdDev-winery").text(d.score_std_dev ? d.score_std_dev.toFixed(2) : "N/A");
+    detailPanel.select("#Designations-winery").text(d.designations.replace(/[{}'"]/g, "").split(",").map(designation => designation.trim()).join(", "));
+    detailPanel.select("#Varieties-winery").text(d.varieties.replace(/[{}'"]/g, "").split(",").map(variety => variety.trim()).join(", "));
+
+    // Ensure the panel is visible
+    detailPanel.style("opacity", 1);
+}
+
+
+Currently, I have a table and a word cloud. Instead of the mean, min, max, median, a col
